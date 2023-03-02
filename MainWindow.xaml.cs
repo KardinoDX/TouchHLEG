@@ -43,17 +43,22 @@ namespace TouchHLE_UI
             switch (ScaleBox.SelectedIndex)
             {
                 case (1):
-                    CommandString += "--scale-hack=2";
+                    CommandString += "--scale-hack=2 ";
                     break;
                 case (2):
-                    CommandString += "--scale-hack=3";
+                    CommandString += "--scale-hack=3 ";
                     break;
                 case (3):
-                    CommandString += "--scale-hack=4";
+                    CommandString += "--scale-hack=4 ";
                     break;
                 default:
                     break;
             }
+
+            if (string.IsNullOrEmpty(XTiltTxt.Text) == false) CommandString += " --x-tilt-offset=" + System.Convert.ToString(System.Convert.ToInt16(XTiltTxt.Text));
+            if (string.IsNullOrEmpty(YTiltTxt.Text) == false) CommandString += " --y-tilt-offset=" + System.Convert.ToString(System.Convert.ToInt16(YTiltTxt.Text));
+
+            if (string.IsNullOrEmpty(DeadZoneTxt.Text) == false) CommandString += " --deadzone=" + System.Convert.ToString(System.Convert.ToInt16(DeadZoneTxt.Text) / 100);
 
             process.StartInfo.Arguments = "/c " + CommandString;
             process.Start();

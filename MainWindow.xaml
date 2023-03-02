@@ -21,19 +21,27 @@
         <TextBox x:Name="FilePathTxt" TextWrapping="Wrap" Text="No File Selected" Width="0" IsEnabled="False" Visibility="Collapsed"/>
         <Label x:Name="Title" Grid.Column="1" Content="TouchHLEG" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="300" Height="85" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
         <Label x:Name="Title2" Grid.Column="1" Content="A Graphical Launcher for touchHLE" HorizontalAlignment="Left" Margin="51,66,0,0" VerticalAlignment="Top" Width="389" Height="53" FontSize="22" HorizontalContentAlignment="Center"/>
-        <Label x:Name="OrientationLbl" Content="Orientation" HorizontalAlignment="Left" Margin="5,178,0,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2" Grid.Column="1" VerticalContentAlignment="Center" Height="33"/>
-        <ComboBox x:Name="OrientationBox" Grid.Column="1" HorizontalAlignment="Left" Margin="95,5,0,0" VerticalAlignment="Top" Width="120" Text="Portrait" SelectedIndex="0" Grid.Row="1">
+        <Label x:Name="OrientationLbl" Content="Orientation" HorizontalAlignment="Left" Margin="22,177,0,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2" VerticalContentAlignment="Center" Height="33" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="OrientationBox" Grid.Column="1" HorizontalAlignment="Left" Margin="74,5,0,0" VerticalAlignment="Top" Width="120" Text="Portrait" SelectedIndex="0" Grid.Row="1">
             <ComboBoxItem Content="Portrait" />
             <ComboBoxItem Content="Landscape Left" />
             <ComboBoxItem Content="Landscape Right" />
         </ComboBox>
-        <Label x:Name="ScaleLbl" Content="Scale Factor" HorizontalAlignment="Left" Margin="43,44,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101" FontSize="16" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="ScaleBox" Grid.Column="1" HorizontalAlignment="Left" Margin="95,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+        <Label x:Name="ScaleLbl" Content="Scale Factor" HorizontalAlignment="Left" Margin="22,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101" FontSize="16" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="ScaleBox" Grid.Column="1" HorizontalAlignment="Left" Margin="74,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectedIndex="0">
             <ComboBoxItem Content="1x" />
             <ComboBoxItem Content="2x" />
             <ComboBoxItem Content="3x" />
             <ComboBoxItem Content="4x" />
         </ComboBox>
-
+        <Label x:Name="XTiltLbl" Content="X Tilt Offset" HorizontalAlignment="Left" Margin="22,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101" FontSize="16" Grid.ColumnSpan="2"/>
+        <Label x:Name="YTiltLbl" Content="Y Tilt Offset" HorizontalAlignment="Left" Margin="22,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" FontSize="16" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="XTiltTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="74,98,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF4F4F4" Text="0"/>
+        <TextBox x:Name="YTiltTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="74,133,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF4F4F4" Text="0"/>
+        <Label x:Name="DegreeLbl1" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="199,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="DegreeLbl1_Copy" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="199,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="DeadZoneTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="362,5,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" Background="#FFF4F4F4" Text="10"/>
+        <Label x:Name="DegreeLbl1_Copy1" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="411,180,0,0" VerticalAlignment="Top" Width="85" Height="28" Grid.RowSpan="2"/>
+        <Label x:Name="DeadZoneLbl" Content="Dead Zone" HorizontalAlignment="Left" Margin="267,178,0,0" VerticalAlignment="Top" Width="102" FontSize="16" Grid.Column="1" Grid.RowSpan="2"/>
     </Grid>
 </Window>
