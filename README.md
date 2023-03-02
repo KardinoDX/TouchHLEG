@@ -1,6 +1,6 @@
 # TouchHLEG: A Graphical Launcher for [touchHLE](https://github.com/hikari-no-yume/touchHLE)
 
-![sample](https://user-images.githubusercontent.com/126808671/222534212-147b5b83-c803-41e2-b2d3-5c438093b13a.png)
+![sample](https://user-images.githubusercontent.com/126808671/222565011-98155fba-3759-40e7-b63b-5aaf0acca6e0.png)
 
 # Requirements
 
