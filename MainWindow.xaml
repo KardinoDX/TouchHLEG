@@ -20,7 +20,7 @@
         <Label x:Name="FilePath" Grid.Column="1" HorizontalAlignment="Left" Margin="126,124,0,0" VerticalAlignment="Top" Width="370" Height="33" Background="#FFCCCCCC" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,2,2,2" Content="No File Selected" />
         <TextBox x:Name="FilePathTxt" TextWrapping="Wrap" Text="No File Selected" Width="0" IsEnabled="False" Visibility="Collapsed"/>
         <Label x:Name="Title" Grid.Column="1" Content="TouchHLEG" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="300" Height="85" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <Label x:Name="Title2" Grid.Column="1" Content="A Graphical Launcher for touchHLE" HorizontalAlignment="Left" Margin="51,66,0,0" VerticalAlignment="Top" Width="389" Height="100" FontSize="22" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Title2" Grid.Column="1" Content="A Graphical Launcher for touchHLE" HorizontalAlignment="Left" Margin="51,66,0,0" VerticalAlignment="Top" Width="389" Height="53" FontSize="22" HorizontalContentAlignment="Center"/>
         <Label x:Name="OrientationLbl" Content="Orientation" HorizontalAlignment="Left" Margin="5,178,0,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2" Grid.Column="1" VerticalContentAlignment="Center" Height="33"/>
         <ComboBox x:Name="OrientationBox" Grid.Column="1" HorizontalAlignment="Left" Margin="95,5,0,0" VerticalAlignment="Top" Width="120" Text="Portrait" SelectedIndex="0" Grid.Row="1">
             <ComboBoxItem Content="Portrait" />
