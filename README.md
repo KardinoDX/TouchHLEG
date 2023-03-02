@@ -5,7 +5,7 @@
 # Requirements
 
 1. The Latest release of [touchHLE](https://github.com/hikari-no-yume/touchHLE)
-2. [Microsoft .NET 6.0] (https://dotnet.microsoft.com/en-us/download)
+2. [Microsoft .NET 6.0](https://dotnet.microsoft.com/en-us/download)
 3. The latest release of touchHLEG
 
 # Usage
