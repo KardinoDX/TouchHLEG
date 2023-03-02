@@ -41,7 +41,7 @@
         <Label x:Name="DegreeLbl1" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="199,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85"/>
         <Label x:Name="DegreeLbl1_Copy" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="199,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="DeadZoneTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="362,5,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" Background="#FFF4F4F4" Text="10"/>
-        <Label x:Name="DegreeLbl1_Copy1" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="411,180,0,0" VerticalAlignment="Top" Width="85" Height="28" Grid.RowSpan="2"/>
+        <Label x:Name="DegreeLbl1_Copy1" Grid.Column="1" Content="%" HorizontalAlignment="Left" Margin="411,180,0,0" VerticalAlignment="Top" Width="85" Height="28" Grid.RowSpan="2"/>
         <Label x:Name="DeadZoneLbl" Content="Dead Zone" HorizontalAlignment="Left" Margin="267,178,0,0" VerticalAlignment="Top" Width="102" FontSize="16" Grid.Column="1" Grid.RowSpan="2"/>
     </Grid>
 </Window>
