@@ -15,33 +15,55 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="LaunchBtn" Grid.Column="1" Content="Launch" HorizontalAlignment="Left" Margin="193,189,0,0" VerticalAlignment="Top" FontSize="20" Width="104" IsEnabled="False" Grid.Row="1" Height="30" Click="LaunchBtn_Click"/>
-        <Button x:Name="FileBtn" Content="Choose File" HorizontalAlignment="Left" Margin="43,124,0,0" VerticalAlignment="Top" Height="33" Width="116" Click="btnOpenFile" Grid.ColumnSpan="2"/>
-        <Label x:Name="FilePath" Grid.Column="1" HorizontalAlignment="Left" Margin="126,124,0,0" VerticalAlignment="Top" Width="370" Height="33" Background="#FFCCCCCC" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,2,2,2" Content="No File Selected" />
+        <Button x:Name="LaunchBtn" Content="Launch" HorizontalAlignment="Left" Margin="376,188,0,0" VerticalAlignment="Top" FontSize="20" Width="104" IsEnabled="False" Height="30" Click="LaunchBtn_Click" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="FileBtn" Content="IPA File" HorizontalAlignment="Left" Margin="23,124,0,0" VerticalAlignment="Top" Height="33" Width="69" Click="btnOpenFile" Grid.ColumnSpan="2"/>
+        <Label x:Name="FilePath" Grid.Column="1" HorizontalAlignment="Left" Margin="134,124,0,0" VerticalAlignment="Top" Width="346" Height="33" Background="#FFCCCCCC" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,2,2,2" Content="No File/Folder Selected" />
         <TextBox x:Name="FilePathTxt" TextWrapping="Wrap" Text="No File Selected" Width="0" IsEnabled="False" Visibility="Collapsed"/>
         <Label x:Name="Title" Grid.Column="1" Content="TouchHLEG" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="300" Height="85" FontSize="48" FontWeight="Bold" HorizontalContentAlignment="Center"/>
         <Label x:Name="Title2" Grid.Column="1" Content="A Graphical Launcher for touchHLE" HorizontalAlignment="Left" Margin="51,66,0,0" VerticalAlignment="Top" Width="389" Height="53" FontSize="22" HorizontalContentAlignment="Center"/>
-        <Label x:Name="OrientationLbl" Content="Orientation" HorizontalAlignment="Left" Margin="22,177,0,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2" VerticalContentAlignment="Center" Height="33" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="OrientationBox" Grid.Column="1" HorizontalAlignment="Left" Margin="74,5,0,0" VerticalAlignment="Top" Width="120" Text="Portrait" SelectedIndex="0" Grid.Row="1">
+        <Label x:Name="OrientationLbl" Content="Orientation" HorizontalAlignment="Left" Margin="23,60,0,0" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center" Height="36" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <ComboBox x:Name="OrientationBox" Grid.Column="1" HorizontalAlignment="Left" Margin="74,65,0,0" VerticalAlignment="Top" Width="120" Text="Portrait" SelectedIndex="0" Grid.Row="1" Height="26" SelectedValuePath="Content">
             <ComboBoxItem Content="Portrait" />
             <ComboBoxItem Content="Landscape Left" />
             <ComboBoxItem Content="Landscape Right" />
         </ComboBox>
-        <Label x:Name="ScaleLbl" Content="Scale Factor" HorizontalAlignment="Left" Margin="22,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101" FontSize="16" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="ScaleBox" Grid.Column="1" HorizontalAlignment="Left" Margin="74,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+        <Label x:Name="ScaleLbl" Content="Scale Factor" HorizontalAlignment="Left" Margin="22,101,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101" FontSize="16" Grid.ColumnSpan="2" Height="45"/>
+        <ComboBox x:Name="ScaleBox" Grid.Column="1" HorizontalAlignment="Left" Margin="74,108,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectedIndex="0" Height="24" SelectedValuePath="Content">
             <ComboBoxItem Content="1x" />
             <ComboBoxItem Content="2x" />
             <ComboBoxItem Content="3x" />
             <ComboBoxItem Content="4x" />
         </ComboBox>
-        <Label x:Name="XTiltLbl" Content="X Tilt Offset" HorizontalAlignment="Left" Margin="22,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101" FontSize="16" Grid.ColumnSpan="2"/>
-        <Label x:Name="YTiltLbl" Content="Y Tilt Offset" HorizontalAlignment="Left" Margin="22,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" FontSize="16" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="XTiltTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="74,98,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF4F4F4" Text="0"/>
-        <TextBox x:Name="YTiltTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="74,133,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF4F4F4" Text="0"/>
-        <Label x:Name="DegreeLbl1" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="199,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85"/>
-        <Label x:Name="DegreeLbl1_Copy" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="199,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="DeadZoneTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="362,5,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" Background="#FFF4F4F4" Text="10"/>
-        <Label x:Name="DegreeLbl1_Copy1" Grid.Column="1" Content="%" HorizontalAlignment="Left" Margin="411,180,0,0" VerticalAlignment="Top" Width="85" Height="28" Grid.RowSpan="2"/>
-        <Label x:Name="DeadZoneLbl" Content="Dead Zone" HorizontalAlignment="Left" Margin="267,178,0,0" VerticalAlignment="Top" Width="102" FontSize="16" Grid.Column="1" Grid.RowSpan="2"/>
+        <Label x:Name="XTiltLbl" Content="X Tilt Offset" HorizontalAlignment="Left" Margin="22,148,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101" FontSize="16" Grid.ColumnSpan="2" Height="32"/>
+        <Label x:Name="YTiltLbl" Content="Y Tilt Offset" HorizontalAlignment="Left" Margin="22,186,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" FontSize="16" Grid.ColumnSpan="2" Height="33"/>
+        <TextBox x:Name="XTiltTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="74,153,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Background="#FFF4F4F4" Text="0" Height="20" MaxLength="8"/>
+        <TextBox x:Name="YTiltTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="74,193,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Background="#FFF4F4F4" Text="0" Height="19" MaxLength="8"/>
+        <Label x:Name="DegreeLbl1" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="139,148,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Height="26"/>
+        <Label x:Name="DegreeLbl1_Copy" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="139,189,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Height="28"/>
+        <TextBox x:Name="DeadZoneTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="346,144,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" Background="#FFF4F4F4" Text="10" Height="21" MaxLength="8"/>
+        <Label x:Name="DegreeLbl1_Copy1" Grid.Column="1" Content="%" HorizontalAlignment="Left" Margin="395,138,0,0" VerticalAlignment="Top" Width="85" Height="34" Grid.Row="1" VerticalContentAlignment="Center"/>
+        <Label x:Name="DeadZoneLbl" Content="Dead Zone" HorizontalAlignment="Left" Margin="251,137,0,0" VerticalAlignment="Top" Width="102" FontSize="16" Grid.Column="1" Height="35" Grid.Row="1"/>
+        <Label x:Name="XRangetLbl" Content="X Tilt Range" HorizontalAlignment="Left" Margin="251,61,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101" FontSize="16" Height="32" Grid.Column="1"/>
+        <Label x:Name="YRangeLbl" Content="Y Tilt Range" HorizontalAlignment="Left" Margin="251,99,0,0" Grid.Row="1" VerticalAlignment="Top" Width="102" FontSize="16" Height="33" Grid.Column="1"/>
+        <TextBox x:Name="XRangeTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="346,66,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Background="#FFF4F4F4" Text="60" Height="20" MaxLength="8"/>
+        <TextBox x:Name="YRangeTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="346,106,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" Background="#FFF4F4F4" Text="60" Height="19" MaxLength="8"/>
+        <Label x:Name="DegreeLbl1_Copy2" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="411,61,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Height="26"/>
+        <Label x:Name="DegreeLbl1_Copy3" Grid.Column="1" Content="Degrees" HorizontalAlignment="Left" Margin="411,102,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Height="28"/>
+        <ComboBox x:Name="GameBox" Grid.Column="1" HorizontalAlignment="Left" Margin="281,185,0,0" VerticalAlignment="Top" Width="198" Text="Portrait" SelectedIndex="0" Height="26" Grid.RowSpan="2" SelectedValuePath="Content" RenderTransformOrigin="0.5,0.5">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.417"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+            <ComboBoxItem Content="Super Monkey Ball / Lite" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" />
+            <ComboBoxItem Content="Crash Bandicoot Nitro Kart 3D" />
+        </ComboBox>
+        <Button x:Name="LoadBtn" Content="Load" HorizontalAlignment="Left" Margin="114,182,0,0" VerticalAlignment="Top" FontSize="20" Width="68" Height="30" Click="LoadBtn_Click" Grid.Column="1" Grid.RowSpan="2"/>
+        <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Left" Margin="199,182,0,0" VerticalAlignment="Top" FontSize="20" Width="68" Height="30" Click="SaveBtn_Click" Grid.Column="1" Grid.RowSpan="2"/>
+        <Label x:Name="DefaultLbl" Content="Default Settings" HorizontalAlignment="Left" Margin="23,181,0,0" VerticalAlignment="Top" Width="121" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="16" RenderTransformOrigin="0.468,0.197"/>
+        <Button x:Name="FolderBtn" Content="APP Folder" HorizontalAlignment="Left" Margin="56,124,0,0" VerticalAlignment="Top" Height="33" Width="70" Click="btnOpenFolder" Grid.Column="1"/>
     </Grid>
 </Window>
