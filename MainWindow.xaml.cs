@@ -1,6 +1,10 @@
 ﻿using System.Windows;
 using System.IO;
 using System.Linq;
+using System.Windows.Media.Imaging;
+using System.Drawing;
+using System.Windows.Media;
+using System.Windows.Forms;
 
 namespace TouchHLE_UI
 {
@@ -28,6 +32,7 @@ namespace TouchHLE_UI
                 FilePath.Content = openFileDialogue.FileName;
                 FilePathTxt.Text = openFileDialogue.FileName; 
                 LaunchBtn.IsEnabled = true;
+                InfoBtn.Visibility = Visibility.Visible;
             }
         }
 
@@ -45,13 +50,14 @@ namespace TouchHLE_UI
                     FilePath.Content = folderPath;
                     FilePathTxt.Text = folderPath;
                     LaunchBtn.IsEnabled = true;
+                    InfoBtn.Visibility = Visibility.Visible;
                     return;
 
                 }
                 else if (selected == System.Windows.Forms.DialogResult.OK)
                 {
-                    MessageBox.Show("Please Select a valid .APP folder.",
-                                    "Invalid Folder", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show("Please Select a valid .APP folder.",
+                                                         "Invalid Folder", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else return;
             }
@@ -98,9 +104,13 @@ namespace TouchHLE_UI
             if (string.IsNullOrEmpty(DeadZoneTxt.Text) == false) CommandString += " --deadzone=" + System.Convert.ToString(System.Convert.ToInt16(DeadZoneTxt.Text) / 100);
 
 
-           // Launches touchHLE
+            // Launches touchHLE, then closes the Launcher
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.Arguments = "/c " + CommandString;
             process.Start();
+            process.WaitForExit();
+            this.Close();
         }
 
         // Attempts to Load Settings from File
@@ -120,10 +130,10 @@ namespace TouchHLE_UI
             }
             catch
             {
-                MessageBox.Show("There was a problem loading the default settings.\n" +
-                                "Please ensure GSettings.csv is in the current directory.\n" +
-                                "If it is, it will need to be redownloaded and replaced.",
-                                "Error Accessing Settings File", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.MessageBox.Show("There was a problem loading the default settings.\n" +
+                                               "Please ensure GSettings.csv is in the current directory.\n" +
+                                               "If it is, it will need to be redownloaded and replaced.",
+                                               "Error Accessing Settings File", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
@@ -131,8 +141,10 @@ namespace TouchHLE_UI
         // Attempts to Save Settings to File
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult confirmation = MessageBox.Show("This will Overwrite Default Settings for " + GameBox.SelectedValue.ToString() + ".\n" +
-                             "Are you sure you want to do this?", "Confirm Overwrite", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult confirmation = 
+                System.Windows.MessageBox.Show("This will Overwrite Default Settings for " + GameBox.SelectedValue.ToString()
+                                                + ".\n" + "Are you sure you want to do this?", 
+                                               "Confirm Overwrite", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (confirmation == MessageBoxResult.Yes)
             {
                 try
@@ -148,17 +160,55 @@ namespace TouchHLE_UI
                      YRangeTxt.Text + ',' + 
                      DeadZoneTxt.Text;
                      File.WriteAllLines(Directory.GetCurrentDirectory() + @"\GSettings.csv", newSettings);
-                     MessageBox.Show("Default Settings have been saved for " + GameBox.SelectedValue.ToString() + ".",
-                                     "Successfully Saved Settings", MessageBoxButton.OK, MessageBoxImage.Information);
+                     System.Windows.MessageBox.Show("Default Settings have been saved for " + GameBox.SelectedValue.ToString() + ".",
+                                                    "Successfully Saved Settings", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch
                 {
-                     MessageBox.Show("There was a problem saving the default settings.\n" +
-                                     "Please ensure GSettings.csv is in the directory.\n" +
-                                     "If it is, it will need to be redownloaded and replaced.",
-                                     "Error Accessing Settings File", MessageBoxButton.OK, MessageBoxImage.Error);
+                     System.Windows.MessageBox.Show("There was a problem saving the default settings.\n" +
+                                                    "Please ensure GSettings.csv is in the directory.\n" +
+                                                    "If it is, it will need to be redownloaded and replaced.",
+                                                    "Error Accessing Settings File", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        // Information Button Properties
+        private void InfoBtn_Initialized(object sender, System.EventArgs e)
+        {
+            BitmapSource infoIcon =
+                System.Windows.Interop.Imaging.CreateBitmapSourceFromHIcon(
+                System.Drawing.SystemIcons.Information.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions()
+                );
+
+            InfoBtn.Background = new ImageBrush(infoIcon);
+        }
+
+        private void InfoBtn_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            System.Windows.Input.Mouse.OverrideCursor = System.Windows.Input.Cursors.Hand;
+        }
+
+        private void InfoBtn_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            System.Windows.Input.Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
+
+        }
+
+        private void InfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            process.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
+            process.StartInfo.FileName = "cmd";
+            string CommandString = "touchHLE.exe \"" + FilePathTxt.Text + "\" --info";
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.Arguments = "/c " + CommandString;
+            process.Start();
+            process.StandardOutput.ReadLine();
+            process.StandardOutput.ReadLine();
+            string info = process.StandardOutput.ReadToEnd();
+            System.Windows.MessageBox.Show(info,"App Information", MessageBoxButton.OK, MessageBoxImage.Information); 
         }
     }
 }
