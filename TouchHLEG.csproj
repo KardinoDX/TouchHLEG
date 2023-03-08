@@ -9,4 +9,14 @@
 	<UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="GSettings.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="GSettings.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
