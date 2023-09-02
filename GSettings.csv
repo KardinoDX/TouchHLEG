@@ -1,4 +1,8 @@
-GameTitle,Orientation,Scale,XOffset,YOffset,XRange,YRange,DeadZone
-Super Monkey Ball / Lite,1,0,0,24,60,60,10
-Crash Bandicoot Nitro Kart 3D,1,0,0,0,60,60,10
-Touch & Go LITE,0,0,0,0,60,60,10
+GameTitle,Orientation,Scale,XOffset,YOffset,XRange,YRange,DeadZone,Notes
+Super Monkey Ball / Lite,1,0,0,24,60,60,10,Controller Mapping: [B = speed up level intro] [X = pause]
+Crash Bandicoot Nitro Kart 3D,1,0,0,0,60,60,10,Controller Mapping: [A = jump/drift] [B = brake] [X = pause] [Y = use item]
+Touch & Go LITE,0,0,0,0,60,60,10, 
+Fastline Street Racing,1,0,0,0,60,60,10,Controller Mapping: [A = accelerate] [B = brake]
+Mystery Mania,1,0,0,0,60,60,10, 
+Donut Games,0,0,0,0,60,60,10, 
+Wolfenstein 3D,0,0,0,0,60,60,10, 

@@ -127,6 +127,16 @@ namespace TouchHLE_UI
                 this.XRangeTxt.Text = settings[5];
                 this.YRangeTxt.Text = settings[6];
                 this.DeadZoneTxt.Text = settings[7];
+                if (settings[8].ToString() == " " || settings[8].ToString() == "This game does not have controls mapped.")
+                {
+                    this.ControlsTxt.Text = "This game does not have controls mapped.";
+                    this.ControlsTxt.Foreground = System.Windows.Media.Brushes.Red;
+                }
+                else
+                {
+                    this.ControlsTxt.Text = settings[8].ToString();
+                    this.ControlsTxt.Foreground = System.Windows.Media.Brushes.Green;
+                }
             }
             catch
             {
@@ -136,6 +146,8 @@ namespace TouchHLE_UI
                                                "Error Accessing Settings File", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            SaveBtn.IsEnabled = true;
         }
 
         // Attempts to Save Settings to File
@@ -158,7 +170,8 @@ namespace TouchHLE_UI
                      YTiltTxt.Text + ',' + 
                      XRangeTxt.Text + "," + 
                      YRangeTxt.Text + ',' + 
-                     DeadZoneTxt.Text;
+                     DeadZoneTxt.Text + ',' +
+                     ControlsTxt.Text;
                      File.WriteAllLines(Directory.GetCurrentDirectory() + @"\GSettings.csv", newSettings);
                      System.Windows.MessageBox.Show("Default Settings have been saved for " + GameBox.SelectedValue.ToString() + ".",
                                                     "Successfully Saved Settings", MessageBoxButton.OK, MessageBoxImage.Information);
